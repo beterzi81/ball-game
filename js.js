@@ -21,6 +21,8 @@ const isim = new Image();
 isim.src = 'gorseller/isim.png';
 
 
+
+
 const keys=[];
 
 // function draw(){
@@ -42,50 +44,77 @@ const player={
   height: 62,
   frameX: 0,
   frameY: 0,
-  speed: 9,
+  speed: 15,
   moving: false
 };
 
+const arrow ={
+  x: player.x + (player.width/2),
+  y: player.y + 1,
+  width: 5,
+  height: 16,
+  speed: 5,
+  moving: false 
+}
+
+const arr = new Image();
+arr.src = 'gorseller/ok.png';
 
 const playbg = new Image();
 playbg.src = 'gorseller/bg-play.png';
 
 const charSprite = new Image();
-charSprite.src = 'karakter/sprite-char.png';
+charSprite.src = 'karakter/sprite-char2.png';
 
 function drawSprite (img,sX,sY,sW,sH,dX,dY,dW,dH){
   ctx.drawImage(img,sX,sY,sW,sH,dX,dY,dW,dH);
 };
 
-// function animate(){
-  // ctx.clearRect(0,0,cvs.width,cvs.height);
-  // ctx.drawImage(playbg,0,0,cvs.width,cvs.height);
-  // drawSprite(charSprite,player.width * player.frameX,player.height * player.frameY,player.width,player.height,player.x,player.y,player.width,player.height);
-  // movePlayer();
-  // handlePlayerFrame();
-//   requestAnimationFrame(animate);
-// };
+function arrowAnimate(){
+  
+  drawSprite(arr,0,0,arrow.width,arrow.height,arrow.x,arrow.y,arrow.width,arrow.height);
+  
+  moveArrow();
+  requestAnimationFrame(arrowAnimate);
+};
 
-// animate();
+
 
 setInterval(function(){
   ctx.clearRect(0,0,cvs.width,cvs.height);
   ctx.drawImage(playbg,0,0,cvs.width,cvs.height);
   drawSprite(charSprite,player.width * player.frameX,player.height * player.frameY,player.width,player.height,player.x,player.y,player.width,player.height);
   movePlayer();
+  
   handlePlayerFrame();
 },60)
 
 window.addEventListener("keydown" , function(e){
-  keys[e.keyCode] = true;
+  if (e.keyCode == 32){
+    arrowAnimate();
+  }
+
+    else{keys[e.keyCode] = true;
   player.moving = true;
+    }
   // console.log(keys);
 });
 window.addEventListener("keyup" , function(e){
-  delete keys[e.keyCode];
+  if (e.keyCode == 32){
+  }
+  else {delete keys[e.keyCode];
   player.moving=false;
-  
+  }
 });
+window.addEventListener('keydown', function(e) {
+  if(e.keyCode == 32 && e.target == document.body) {
+    e.preventDefault();
+  }
+});
+
+function moveArrow(){
+  arrow.y-=arrow.speed;
+}
 
 function movePlayer(){
   if (keys[65] && player.x > 0){
@@ -135,4 +164,4 @@ function animate(){
   }
 }
 
-startAnimating(20);
+startAnimating(10);
