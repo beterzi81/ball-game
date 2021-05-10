@@ -24,20 +24,20 @@ table{
 }
 
 body {
-    background-image: url('arkaplan.jpg');
+    background-image: url('gorseller/arkaplan.jpg');
     background-size: auto;
     background-repeat: repeat;
     
   }
 
 
-.canvas{
-    background-color:rgb(255, 255, 255,1);
-    display: flex;
+#oyuncanvas{
     width: 1150px;
     height: 600px;
-    
+    border: 1px solid black;
+    background: #80deea;
 }
+
 .cdivbox2{
     display: -webkit-box;
     display: -moz-box;
