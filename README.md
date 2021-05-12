@@ -25,6 +25,9 @@ Ayrıca bu projenin canlı bir şekilde gösterimi için github pages kullanılm
 ## Sayfa Tanıtımı
 Sayfamızı ilk açtığımızda karşımıza direkt olarak canvasımız çıkıyor:
 ![enter image description here](https://ibb.co/8rF1ccb)
+![anasayfa1](https://user-images.githubusercontent.com/56171006/117954991-3e458180-b320-11eb-873d-90183a4b4596.png)
+
+
 
 ## Synchronize a file
 
