@@ -20,7 +20,7 @@ Bu klasör HTML üstündeki bir canvas içinde javascript ile yazılmış oyunu 
 
 Dosyaları isterseniz [buradaki](https://github.com/beterzi81/ball-game.git) adreste klasörlerin sağ üstündeki yeşil code butonuna tıklayıp en alttaki seçenekte belirtilen şekilde zip dosyası olarak indirip kendi bilgisayarınızdaki tarayıcınızdan index.html dosyasını çalıştırarak çalıştırabilirsiniz.
 
-Ayrıca bu projenin canlı bir şekilde gösterimi için github pages kullanılmıştır. [Buyurun efendim.](https://beterzi81.github.io/ball-game/) 
+Ayrıca bu projenin canlı bir şekilde gösterimi için github pages kullanılmıştır. [Buraya tıklayabilirsiniz.](https://beterzi81.github.io/ball-game/) 
 
 ## Sayfa Tanıtımı
 Sayfamızı ilk açtığımızda karşımıza direkt olarak canvasımız çıkıyor:
