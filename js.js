@@ -4,17 +4,14 @@ const ctx = cvs.getContext("2d");
 cvs.width = 1150;
 cvs.height = 600;
 
+let canvasposition = cvs.getBoundingClientRect();
+console.log(canvasposition.x,canvasposition.y);
+console.log(canvasposition.left,canvasposition.top);
 const bg = new Image();
 bg.src = "gorseller/bg.png";
 
 const startbut = new Image();
 startbut.src = "gorseller/start-button.png";
-
-const scorebut = new Image();
-scorebut.src = "gorseller/high-scores-button.png";
-
-const soundbut = new Image();
-soundbut.src = "gorseller/sound-button.png";
 
 const isim = new Image();
 isim.src = "gorseller/isim.png";
@@ -60,16 +57,16 @@ let ctr = 0;
 
 const mouse = {
   clicked: false,
-  x: 10,
-  y: 10,
-  width: 0.25,
-  height: 0.25,
+  x: null,
+  y: null,
+  width: 250,
+  height: 250,
 }
 
 function collision(first, second) {
   if (!(first.x > second.x + second.width || 
     first.x + first.width < second.x ||
-    first.y > second.y + second.height ||
+    first.y > second.y + second.height||
     first.y + first.height < second.y
   )
    ) {
@@ -79,16 +76,17 @@ function collision(first, second) {
 
 cvs.addEventListener('mousedown', function () {
   mouse.clicked = true;
+  console.log(mouse.x,mouse.y);
 });
 
 cvs.addEventListener('mouseup', function () {
   mouse.clicked = false;
 });
 
-let canvasposition = cvs.getBoundingClientRect();
+
 cvs.addEventListener('mousemove', function (e) {
-  mouse.x = e.x - canvasposition.left;
-  mouse.y = e.y - canvasposition.top;
+  mouse.x = e.x - canvasposition.x ;
+  mouse.y = e.y - canvasposition.y;
 });
 
 cvs.addEventListener('mouseleave', function () {
@@ -118,12 +116,12 @@ let arrow = {
 };
 
 const button={
-  x: 520,
-  y: 200,
+  x: cvs.width*45/100,
+  y: cvs.height/3,
   width: 108,
   height: 103,
 }
-
+console.log(button.x,button.y);
 function start(){
   if (collision(mouse,button) && mouse.clicked) {
     basla=1;
